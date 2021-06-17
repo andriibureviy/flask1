@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}Добавление заявки{% endblock %}
+{% block content %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color: #009688;" >
+      <div class="container">
+        <a class="navbar-brand" href="/">Рожки&Ножки</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="/">Список домов</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/comp">Жалобы</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/req">Обращения к специалистам<span class="sr-only">(current)</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">О нас</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container">
+        <CENTER><h2>Добавление обращения к специалисту</h2></CENTER>
+            <div class="row justify-content-center">
+<div class="col-md-7">
+
+        <form method="post"">
+            <div class="form-group">
+                <label for="flat">Квартира</label>
+                <select class="custom-select" name="flat" id="flates">
+                    {% for f in flats %}
+                        <option value="{{ f.id }}" {%if req.flat_id == f.id %} selected {%endif%} >{{ f.house.name }}, {{ f.num }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="spec">Специалист</label>
+                <select class="custom-select" name="spec" id="specs">
+                    {% for f in specs %}
+                        <option value="{{ f.id }}" {%if req.spec_id == f.id %} selected {%endif%} >{{ f.fio }}, {{ f.prof.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comment">Комментарий</label>
+                <textarea class="form-control" id="comment" name="comment">{{req.comment}}</textarea>
+            </div>
+            <div class="form-group"> <!-- Date input -->
+                <label class="control-label" for="date">Дата</label>
+                <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text" value="{{ req.date }}" />
+            </div>
+            <input type="hidden" name="_method" value="PUT">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+        <br>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Editing post
+{% endblock %}
+
+{% block body %}
+<div class="c_items">
+    <div class="bigtext">Editing post</div>
+    <form action="/create_items"></form>
+    <form method="post">
+        <input type="text" name="title" class="form-control-input" value="{{ items.title }}" placeholder="Insert title"><br>
+        <textarea name="price" id = "price" class="form-control-intro" placeholder="Insert price">{{ items.price }}</textarea><br>
+        <textarea name="text" id = "text" class="form-control-text" placeholder="Insert main text">{{ items.text }}</textarea><br>
+        <input type="submit" class="grbutton" value="Update">
+    </form>
+</div>
+{% endblock %}

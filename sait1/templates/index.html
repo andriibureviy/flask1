@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Online Shop</title>
+{% endblock %}
+
+{% block body %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="h1 hero__title">Main page u</h1>
+        <h1 class="h1 hero__title">For u</h1>
+    </div>
+
+<div class="container">
+  <div class="card-deck mb-4 text-center">
+  {% for el in data %}
+      <div class="card-deck mb-4 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 text-center">
+          <strong class="card mb-0 rounded-3 shadow-sm" style="background-color:#04bdff;">{{ el.id }}</strong>
+          <div class="card-header">
+            <h5 class="my-0 fw-normal">{{ el.title }}</h5>
+          </div>
+          <h3 class="my-0 fw-normal">{{ el.text }}</h3>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">{{ el.price }}<small class="text-muted">/$</small></h1>
+            <div class="offer__body">
+            <div class="row">
+            </div>
+                </div>
+            <a href="/buy/{{ el.id }}" class="w-100 btn btn-lg btn-outline-primary">buy</a>
+          </div>
+
+
+                </div>
+            </div>
+        </div>
+
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+{% endblock %}

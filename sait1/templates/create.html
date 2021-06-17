@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Add</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+     <h1>Add</h1>
+     <form method="post">
+          <input type="text" class="from-control" name="title" id="title" placeholder="Name" maxlength="10"> <br>
+          <input type="number" class="from-control" name="price" id="price" placeholder="Price"><br>
+          <style>
+   div {
+    border: 2px solid black; /* Параметры рамки */
+    padding: 20px; /* Поля вокруг текста */
+    margin-top: 20зч; /* Отступ сверху */
+   }
+  </style>
+          <input type="text" class="from-control" name="text" id="text" placeholder="Text" size="50"><br>
+          <button class="btn btn-success" type="submit">Add</button>
+     </form>
+
+</div>
+{% endblock %}
